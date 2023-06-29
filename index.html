@@ -23,7 +23,7 @@
 <article class="signup">
     <picture class="signup__img">
         <source srcset="assets/images/illustration-sign-up-desktop.svg"
-                media="(min-width: 800px)">
+                media="(min-width: 850px)">
         <img src="assets/images/illustration-sign-up-mobile.svg" alt="image of computer desktop and web browser">
     </picture>
     <div class="signup__body">
@@ -39,10 +39,11 @@
         <form class="signup__form">
             <div class="flex-group">
                 <label class="email__label" for="email">Email address</label>
+                <!-- Hidden label: class "error" reveals-->
                 <span class="email__error">Invalid email!</span>
             </div>
             <input class="input" type="email" id="email" name="email" placeholder="email@company.com">
-            <button type="button" class="button" onclick="subscribeClicked()">
+            <button type="button" class="button" onclick="subscribeClicked(document.getElementById('email').value)">
                 Subscribe to monthly newsletter
             </button>
         </form>
@@ -57,7 +58,7 @@
     </div>
     <h1 class="success__title">Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to <strong>ash@loremcompany.com</strong>.
+    <p>A confirmation email has been sent to <strong id="success__email"></strong>.
         Please open it and click the button inside to confirm your subscription.</p>
 
     <form class="success__form">
