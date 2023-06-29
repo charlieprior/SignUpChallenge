@@ -13,10 +13,6 @@
     --fw-bold: 700;
 }
 
-/**:is(:hover, :focus) {*/
-/*    outline: red 1px solid;*/
-/*}*/
-
 body {
     font-family: var(--ff-main);
     font-weight: var(--fw-regular);
@@ -45,14 +41,20 @@ strong {
     font-weight: var(--fw-bold);
 }
 
-.signup, .success {
-    display: grid;
-}
+/* main */
 
 .signup, .success {
+    display: grid;
     max-width: 375px;
     background-color: var(--clr-neutral-100);
 }
+
+.signup__form,
+.success__form {
+    display: grid;
+}
+
+/* signup only */
 
 .signup__body {
     margin: 1.25rem;
@@ -82,18 +84,12 @@ strong {
     transform: translate(-2.5rem, 0);
 }
 
-.signup__form,
-.success__form {
-    display: grid;
-}
-
 .email__label, .email__error {
     font-weight: var(--fw-bold);
     font-size: 0.8rem;
 }
 
 .email__error {
-    display: none;
     color: var(--clr-primary-500);
 }
 
@@ -101,6 +97,28 @@ strong {
     display: block;
 }
 
+/* success only */
+
+.success {
+    height: 100dvh;
+    padding: 0 5%;
+    grid-template-rows: 25% 25% 20% 30%;
+}
+
+.success__img {
+    align-self: end;
+}
+
+.success__title {
+    line-height: 1;
+    align-self: end;
+}
+
+/* buttons */
+
+.button {
+    align-self: end;
+}
 
 .input,
 .button {
@@ -119,7 +137,6 @@ strong {
 .input.error {
     border: var(--clr-primary-500) 1px solid;
 }
-
 
 .button {
     background-color: var(--clr-neutral-900);
@@ -144,34 +161,16 @@ strong {
     filter: drop-shadow(8px 10px 5px var(--clr-shadow-500));
 }
 
-.success {
-    height: 100dvh;
-    padding: 0 5%;
-    grid-template-rows: 25% 25% 20% 30%;
-}
-
-.success__img {
-    align-self: end;
-}
-
-.success__title {
-    line-height: 1;
-    align-self: end;
-}
-
-.button {
-    align-self: end;
-}
-
+/* desktop */
 @media (min-width: 850px) {
-    .signup {
-        display: flex;
-        max-width: 800px;
-    }
-
     .signup, .success {
         align-items: center;
         border-radius: 2rem;
+    }
+
+    .signup {
+        display: flex;
+        max-width: 800px;
     }
 
     .signup__img {

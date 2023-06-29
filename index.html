@@ -15,8 +15,6 @@
 
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-
-    <script src="index.js"></script>
 </head>
 <body>
 <!-- Sign-up form start -->
@@ -38,11 +36,11 @@
 
         <form class="signup__form" id="signup__form">
             <div class="flex-group">
-                <label class="email__label" for="email">Email address</label>
+                <label class="email__label" for="signup__input">Email address</label>
                 <!-- Hidden label: class "error" reveals-->
-                <span class="email__error">Invalid email!</span>
+                <span class="email__error hidden">Invalid email!</span>
             </div>
-            <input class="input" type="email" id="email" name="email" placeholder="email@company.com">
+            <input class="input" type="email" id="signup__input" name="email" placeholder="email@company.com">
             <button type="submit" class="button">
                 Subscribe to monthly newsletter
             </button>
@@ -62,11 +60,12 @@
         Please open it and click the button inside to confirm your subscription.</p>
 
     <form class="success__form">
-        <button type="button" class="button" onclick="dismissClicked()">
+        <button type="button" class="button" id="dismiss__button">
             Dismiss message
         </button>
     </form>
 </article>
 <!-- Success message end -->
+<script src="index.js"></script>
 </body>
 </html>
