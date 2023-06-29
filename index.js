@@ -1,8 +1,10 @@
-const button = document.querySelector('.button');
-button.addEventListener('click', buttonClick);
-
-function buttonClick(event) {
+function subscribeClicked() {
     const signup = document.querySelector('.signup');
-    signup.classList.toggle('hidden');
-    event.preventDefault();
+    const success = document.querySelector('.success');
+    signup.style.display = "none";
+    success.style.display = "block";
+}
+
+function dismissClicked() {
+    location.reload();
 }
