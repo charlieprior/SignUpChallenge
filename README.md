@@ -2,7 +2,7 @@
 
 This is a solution to
 the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv).
-Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is the first thing I've built without a tutorial. I'm pretty happy with it.
 
 ## Table of contents
 
@@ -10,15 +10,9 @@ Frontend Mentor challenges help you improve your coding skills by building reali
     - [The challenge](#the-challenge)
     - [Screenshot](#screenshot)
     - [Links](#links)
-- [My process](#my-process)
-    - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
+- [What I learned](#what-i-learned)
     - [Useful resources](#useful-resources)
-- [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -26,7 +20,7 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 
 Users should be able to:
 
-- Add their email and submit the form
+- Add their email and submit the for
 - See a success message with their email after successfully submitting the form
 - See form validation messages if:
     - The field is left empty
@@ -37,41 +31,49 @@ Users should be able to:
 ### Screenshot
 
 ![](result-desktop.png)
+![](result-mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://charlieprior.github.io/SignUpChallenge/
 
-## My process
+## What I learned
 
-### Built with
+- That the script needs to be loaded last so it has
+  access to the DOM 🤦🏻‍♂️
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and
-providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+- How to react to a form submission:
+    - I used the submit
+      event of the form to validate the input and display the
+      success message, and the onblur event to provide feedback to
+      the user that their email is incorrectly formatted.
+    - The dismiss button uses a simple onclick event to reset
+      the form and hide the success message.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+
+<form class="signup__form" id="signup__form">
+    <div class="flex-group">
+        <label class="email__label" for="signup__input">Email address</label>
+        <span class="email__error hidden">Invalid email!</span>
+    </div>
+    <input class="input" type="email" id="signup__input" name="email" placeholder="email@company.com">
+    <button type="submit" class="button">
+        Subscribe to monthly newsletter
+    </button>
+</form>
 ```
 
-```css
-.proud-of-this-css {
-    color: papayawhip;
+```javascript
+const form = document.getElementById("signup__form");
+form.addEventListener("submit", subscribeClicked);
+
+const input = document.getElementById("signup__input");
+input.onblur = function () { ...
+}
+
+const dismiss = document.getElementById("dismiss__button");
+dismiss.addEventListener("click", dismissClicked);
 }
 ```
 
@@ -81,41 +83,14 @@ const proudOfThisFunc = () => {
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking
-out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts
-you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.
-**
+- I tried hard to make the HTML and CSS structure
+  be logical and easy to understand. I think I succeeded.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will
-  use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd
-  recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could
-come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- [HTML Events](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement#events)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got
-some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel
-free to delete this section entirely.**
+Thanks to the Frontend Mentor community for the help, especially @Josh Burri and @deejayjay on discord for all their
+help.
