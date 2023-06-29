@@ -1,0 +1,83 @@
+:root {
+    --clr-primary-500: hsl(4, 100%, 67%);
+    --clr-neutral-900: hsl(234, 29%, 20%);
+    --clr-neutral-600: hsl(235, 18%, 26%);
+    --clr-neutral-300: hsl(231, 7%, 60%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-main: 'Roboto', serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
+
+body {
+    font-family: var(--ff-main);
+    font-weight: var(--fw-regular);
+    font-size: 1rem;
+    color: var(--clr-neutral-600);
+    background-color: var(--clr-neutral-100);
+
+    display: grid;
+    height: 100dvh;
+}
+
+.signup {
+    display: block;
+}
+
+.signup .hidden {
+    display: none !important;
+}
+
+.signup__body {
+    margin: 1.25rem;
+}
+
+.signup__title {
+    font-weight: var(--fw-bold);
+    font-size: 2.5rem;
+    padding: .875rem 0;
+}
+
+.signup__list {
+    list-style: none;
+    padding: 1.5rem 2.5rem;
+}
+
+.signup__list li {
+    padding-bottom: 0.875rem;
+}
+
+.signup__list li::before {
+    content: url("assets/images/icon-list.svg");
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    padding-right: 1rem;
+    transform: translate(-2.5rem, 0);
+}
+
+.signup__form {
+    display: grid;
+}
+
+.signup__form .label {
+    font-weight: var(--fw-bold);
+    font-size: 0.8rem;
+}
+
+.signup__form .input, .button {
+    margin: 0.7rem 0;
+    padding: 1rem;
+    border: var(--clr-neutral-300) 1px solid;
+    border-radius: 0.5rem;
+
+    color: var(--clr-neutral-300);
+}
+
+.signup__form .button {
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
+    font-weight: var(--fw-bold);
+}
