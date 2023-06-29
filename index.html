@@ -36,14 +36,14 @@
             <li>And much more!</li>
         </ul>
 
-        <form class="signup__form">
+        <form class="signup__form" id="signup__form">
             <div class="flex-group">
                 <label class="email__label" for="email">Email address</label>
                 <!-- Hidden label: class "error" reveals-->
                 <span class="email__error">Invalid email!</span>
             </div>
             <input class="input" type="email" id="email" name="email" placeholder="email@company.com">
-            <button type="button" class="button" onclick="subscribeClicked(document.getElementById('email').value)">
+            <button type="submit" class="button">
                 Subscribe to monthly newsletter
             </button>
         </form>
