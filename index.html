@@ -22,6 +22,8 @@
 <!-- Sign-up form start -->
 <article class="signup">
     <picture class="signup__img">
+        <source srcset="assets/images/illustration-sign-up-desktop.svg"
+                media="(min-width: 800px)">
         <img src="assets/images/illustration-sign-up-mobile.svg" alt="image of computer desktop and web browser">
     </picture>
     <div class="signup__body">
@@ -35,7 +37,10 @@
         </ul>
 
         <form class="signup__form">
-            <label class="label" for="email">Email address</label>
+            <div class="flex-group">
+                <label class="email__label" for="email">Email address</label>
+                <span class="email__error">Invalid email!</span>
+            </div>
             <input class="input" type="email" id="email" name="email" placeholder="email@company.com">
             <button type="button" class="button" onclick="subscribeClicked()">
                 Subscribe to monthly newsletter
@@ -46,18 +51,20 @@
 <!-- Sign-up form end -->
 
 <!-- Success message start -->
-<article class="success">
-    <div class="success__image">
+<article class="success hidden">
+    <div class="success__img">
         <img src="assets/images/icon-success.svg" alt="">
     </div>
     <h1 class="success__title">Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to ash@loremcompany.com.
+    <p>A confirmation email has been sent to <strong>ash@loremcompany.com</strong>.
         Please open it and click the button inside to confirm your subscription.</p>
 
-    <button type="button" class="button" onclick="dismissClicked()">
-        Dismiss message
-    </button>
+    <form class="success__form">
+        <button type="button" class="button" onclick="dismissClicked()">
+            Dismiss message
+        </button>
+    </form>
 </article>
 <!-- Success message end -->
 </body>

@@ -1,9 +1,11 @@
 :root {
     --clr-primary-500: hsl(4, 100%, 67%);
+    --clr-primary-400: hsl(348, 100%, 70%);
     --clr-neutral-900: hsl(234, 29%, 20%);
     --clr-neutral-600: hsl(235, 18%, 26%);
     --clr-neutral-300: hsl(231, 7%, 60%);
     --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-shadow-500: hsla(4, 100%, 67%, 0.3);
 
     --ff-main: 'Roboto', serif;
 
@@ -11,26 +13,52 @@
     --fw-bold: 700;
 }
 
+/**:is(:hover, :focus) {*/
+/*    outline: red 1px solid;*/
+/*}*/
+
 body {
     font-family: var(--ff-main);
     font-weight: var(--fw-regular);
     font-size: 1rem;
     color: var(--clr-neutral-600);
-    background-color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-600);
 
     display: grid;
+    place-content: center;
     height: 100dvh;
 }
 
-.signup {
-    display: block;
+/* utilities */
+.flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none !important;
+}
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+.signup, .success {
+    display: grid;
+}
+
+.signup, .success {
+    max-width: 375px;
+    background-color: var(--clr-neutral-100);
 }
 
 .signup__body {
     margin: 1.25rem;
 }
 
-.signup__title {
+.signup__title, .success__title {
     font-weight: var(--fw-bold);
     font-size: 2.5rem;
     padding: .875rem 0;
@@ -54,30 +82,110 @@ body {
     transform: translate(-2.5rem, 0);
 }
 
-.signup__form {
+.signup__form,
+.success__form {
     display: grid;
 }
 
-.signup__form .label {
+.email__label, .email__error {
     font-weight: var(--fw-bold);
     font-size: 0.8rem;
 }
 
-.signup__form .input, .button {
+.email__error {
+    display: none;
+    color: var(--clr-primary-500);
+}
+
+.email__error.error {
+    display: block;
+}
+
+
+.input,
+.button {
     margin: 0.7rem 0;
     padding: 1rem;
-    border: var(--clr-neutral-300) 1px solid;
     border-radius: 0.5rem;
+    height: 60px;
 
     color: var(--clr-neutral-300);
 }
 
-.signup__form .button {
+.input {
+    border: var(--clr-neutral-300) 1px solid;
+}
+
+.input.error {
+    border: var(--clr-primary-500) 1px solid;
+}
+
+
+.button {
     background-color: var(--clr-neutral-900);
+    border: none;
     color: var(--clr-neutral-100);
     font-weight: var(--fw-bold);
 }
 
+.input:is(:hover, :focus) {
+    border: var(--clr-neutral-900) 1px solid;
+    color: var(--clr-neutral-900);
+}
+
+.input.error:is(:hover, :focus) {
+    border: var(--clr-primary-500) 1px solid;
+    color: var(--clr-neutral-900);
+}
+
+.button:is(:hover, :focus) {
+    /*.button {*/
+    background: linear-gradient(to right, var(--clr-primary-400), var(--clr-primary-500));
+    filter: drop-shadow(8px 10px 5px var(--clr-shadow-500));
+}
+
 .success {
-    display: none;
+    height: 100dvh;
+    padding: 0 5%;
+    grid-template-rows: 25% 25% 20% 30%;
+}
+
+.success__img {
+    align-self: end;
+}
+
+.success__title {
+    line-height: 1;
+    align-self: end;
+}
+
+.button {
+    align-self: end;
+}
+
+@media (min-width: 850px) {
+    .signup {
+        display: flex;
+        max-width: 800px;
+    }
+
+    .signup, .success {
+        align-items: center;
+        border-radius: 2rem;
+    }
+
+    .signup__img {
+        order: 2;
+        padding: 1em;
+    }
+
+    .signup__body {
+        order: 1;
+        width: 60%;
+    }
+
+    .success {
+        max-width: 400px;
+        max-height: 400px;
+    }
 }

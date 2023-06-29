@@ -1,10 +1,15 @@
 function subscribeClicked() {
     const signup = document.querySelector('.signup');
     const success = document.querySelector('.success');
-    signup.style.display = "none";
-    success.style.display = "block";
+    signup.classList.add("hidden");
+    success.classList.remove("hidden");
 }
 
 function dismissClicked() {
-    location.reload();
+    const signup = document.querySelector('.signup');
+    const success = document.querySelector('.success');
+    const form = document.querySelector('.signup__form');
+    signup.classList.remove("hidden");
+    success.classList.add("hidden");
+    form.reset();
 }
