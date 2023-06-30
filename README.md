@@ -89,6 +89,7 @@ const proudOfThisFunc = () => {
 ### Useful resources
 
 - [HTML Events](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement#events)
+- [async defer](https://javascript.info/script-async-defer)
 
 ## Acknowledgments
 
